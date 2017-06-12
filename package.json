@@ -1,0 +1,22 @@
+{
+  "name": "fullstack-capstone-nick-saule",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thinkful-c11/fullstack-capstone-Nick-Saule.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thinkful-c11/fullstack-capstone-Nick-Saule/issues"
+  },
+  "homepage": "https://github.com/thinkful-c11/fullstack-capstone-Nick-Saule#readme",
+  "devDependencies": {
+    "express": "^4.15.3"
+  }
+}
