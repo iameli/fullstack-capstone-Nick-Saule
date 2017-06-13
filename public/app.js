@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
     const endpointURL = 'http://localhost:8080/shows';
     currentShows=[];
 
@@ -17,7 +16,7 @@ function getData(query) {
         $('body').html('');
         shows.forEach(show => {
             let showTemplate= `<div class="show-container"> 
-                               <p>${shows[0].title}</p>               
+                               <p>${show.title} + ${show.date}</p>               
                             </div>`;
             $('body').append(showTemplate);
 
