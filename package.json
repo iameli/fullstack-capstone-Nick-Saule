@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/thinkful-c11/fullstack-capstone-Nick-Saule#readme",
   "devDependencies": {
+    "body-parser": "^1.17.2",
     "chai": "^4.0.2",
     "chai-http": "^3.0.0",
     "express": "^4.15.3",
-    "mocha": "^3.4.2"
+    "mocha": "^3.4.2",
+    "mongoose": "^4.10.6"
   }
 }

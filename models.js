@@ -4,10 +4,8 @@ const mongoose = require('mongoose');
 
 
 const showSchema = mongoose.Schema({
-    show: {
         title: {type: String,required:true},
         date: {type: String, required: true}
-    }
 });
 
 showSchema.methods.apiRepr = function() {
@@ -18,7 +16,7 @@ showSchema.methods.apiRepr = function() {
     };
 };
 
-const show = mongoose.model('Show', showSchema);
+const Show = mongoose.model('Show', showSchema);
 
 module.exports = {Show};
 
