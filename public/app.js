@@ -15,22 +15,45 @@ function getData(query) {
     function listShows(){
         getData(endpointURL)
     .then(shows => {
-        $('body').html('');
+        $('.container').html('');
         shows.forEach(show => {
             let showTemplate= `<div class="show-container"> 
                                <h3>${show.title} Returns on ${show.returns}</h3>
                                <p>${show.overview}</p>
                                <img src =${show.image} />               
                             </div>`;
-            $('body').append(showTemplate);
 
+                    
+
+            $('.container').append(showTemplate);
+         
         });
     });
 }
 
+    $('#button-container').on('click', function(e) {
+		// $('.overlay, .new-listing').toggleClass('hidden');
+		// $('body').css('overflow', 'scroll');
 
-    $(function() {
+		// let inputFinder = $(e.target).closest('div');
+		let newObject = {
+			title: $('.title').val(),
+			returns: $('.returns').val()
+		};
+		fetch(`http://localhost:8080/shows`, {
+				method: 'POST',
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(newObject)
+			})
+			.then(res => {
+				listShows();
+			})
+	})
+
+ $(function() {
         listShows();
     });
-
 });
