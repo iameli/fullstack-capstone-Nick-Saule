@@ -1,72 +1,11 @@
 
 
-const url = `https://api.themoviedb.org/3/search/tv?api_key=40c781f4f82334b037fc6d9c33cc1c58&query=game+of+thrones`;
-
-fetch(url).then(response => {
-
-    console.log(response)
-    if (!response.ok) {
-        Promise.reject(response.statusText);
-    }
-        return response.json();
-}) .then(data => {
-    console.log(data);
-}).catch(err => {
-    console.error(err);
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // $(document).ready(function() {
 
 //     const endpointURL = 'http://localhost:8080/shows';
-//     const showURL= 'https://www.themoviedb.org/documentation/api';
+/
 
 //     currentShows=[];
 
