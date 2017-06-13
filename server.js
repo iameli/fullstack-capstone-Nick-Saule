@@ -11,6 +11,7 @@ const {Show} = require('./models');
 mongoose.Promise = global.Promise;
 
 app.use(express.static('public'));
+app.use(bodyParser.json());
 //app.listen(process.env.PORT || 8080);
 
 
@@ -18,8 +19,8 @@ app.get('/shows', (req, res) => {
     Show
     .find()
     .exec()
-    .then(posts => {
-        res.json(posts.map(post => post.apiRepr()));
+    .then(shows => {
+        res.json(shows.map(Show => Show.apiRepr()));
     })
      .catch(err => {
       console.error(err);
@@ -27,6 +28,41 @@ app.get('/shows', (req, res) => {
     });
 
 });
+
+
+app.post('/shows', (req, res) => {
+
+  const requiredFields = ['title', 'date'];
+  console.log(req.body);
+  for (let i=0; i<requiredFields.length; i++) {
+    const field = requiredFields[i];
+    if (!(field in req.body)) {
+      const message = `Missing \`${field}\` in request body`
+      console.error(message);
+      return res.status(400).send(message);
+    }
+  }
+
+  Show
+    .create({
+      title: req.body.title,
+      date: req.body.date})
+    .then(
+      Show => res.status(201).json(Show.apiRepr()))
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({message: 'Internal server error'});
+    });
+});
+
+
+
+
+
+
+
+
+
 
 
 // https://www.programmableweb.com/api/movie-database-tmdb
