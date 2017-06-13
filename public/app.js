@@ -1,18 +1,4 @@
 $(document).ready(function() {
-    const shows =[
-        {
-            'id': '1111111',
-            'title': 'Game of Thrones.',
-            'image': 'aaaaaa',
-            'date': 'September 2017',
-        },
-        {
-            'id': '2222222',
-            'title': 'Stranger Things',
-            'image': 'bbbbbbb',
-            'date': 'October 2017'
-        }    
-    ];
 
     const endpointURL = 'http://localhost:8080/shows';
     currentShows=[];
@@ -30,7 +16,7 @@ function getData(query) {
         $('body').html('');
         shows.forEach(show => {
             let showTemplate= `<div class="show-container"> 
-                               <p>${shows[0].title}</p>               
+                               <p>${show.title} + ${show.date}</p>               
                             </div>`;
             $('body').append(showTemplate);
 
