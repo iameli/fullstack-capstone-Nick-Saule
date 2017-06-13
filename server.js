@@ -33,7 +33,7 @@ app.get('/shows', (req, res) => {
 
 app.post('/shows', (req, res) => {
 
-    const requiredFields = ['title', 'date'];
+    const requiredFields = ['title', 'returns'];
     console.log(req.body);
     for (let i=0; i<requiredFields.length; i++) {
       const field = requiredFields[i];
@@ -43,7 +43,10 @@ app.post('/shows', (req, res) => {
         return res.status(400).send(message);
     }
   }
-    const url = 'https://api.themoviedb.org/3/search/tv?api_key=40c781f4f82334b037fc6d9c33cc1c58&query=game+of+thrones';
+
+    let searched = req.body.title;
+    const url = `https://api.themoviedb.org/3/search/tv?api_key=40c781f4f82334b037fc6d9c33cc1c58&query=${searched}`;
+    console.log(url);
 
     fetch(url).then(response => {
         console.log(response);
@@ -58,8 +61,9 @@ app.post('/shows', (req, res) => {
         return Show
         .create({   
             title: req.body.title,
-            date: req.body.date,
-            overview:data.results[0].overview
+            returns: req.body.returns,
+            overview: data.results[0].overview,
+            image: `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`
         })
     })
     .then(Show => res.status(201).json(Show.apiRepr()))
