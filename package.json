@@ -25,6 +25,7 @@
     "mongoose": "^4.10.6"
   },
   "dependencies": {
+    "faker": "^4.1.0",
     "isomorphic-fetch": "^2.2.1"
   }
 }
