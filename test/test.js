@@ -98,7 +98,7 @@ describe('Show API resource', function () {
     });
     
 
-    describe.only('PUT endpoint', function () {
+    describe('PUT endpoint', function () {
 
         it('should update fields you send over', function () {
             const updateData = {
