@@ -34,7 +34,6 @@ app.get('/shows', (req, res) => {
 app.post('/shows', (req, res) => {
 
     const requiredFields = ['title', 'returns'];
-    console.log(req.body);
     for (let i=0; i<requiredFields.length; i++) {
       const field = requiredFields[i];
       if (!(field in req.body)) {
@@ -46,17 +45,17 @@ app.post('/shows', (req, res) => {
 
     let searched = req.body.title;
     const url = `https://api.themoviedb.org/3/search/tv?api_key=40c781f4f82334b037fc6d9c33cc1c58&query=${searched}`;
-    console.log(url);
+
 
     fetch(url).then(response => {
-        console.log(response);
+
         if (!response.ok) {
             Promise.reject(response.statusText);
         }
         return response.json();
     }).then(data => {
         
-        console.log(data);
+
 
         return Show
         .create({   

@@ -18,7 +18,7 @@ function getData(query) {
         $('.container').html('');
         shows.forEach(show => {
             let showTemplate= `<div class="show-container"> 
-                               <h3>${show.title} Returns on ${show.returns}</h3>
+                               <h3>${show.title} Returns on ${show.returns}</h3><div id="button-update"><button class="button update" type="submit">Update</button><div id="button-delete"><button class="button delete" type="submit">Delete</button>
                                <p>${show.overview}</p>
                                <img src =${show.image} />               
                             </div>`;
@@ -48,6 +48,20 @@ function getData(query) {
 				listShows();
 			})
 	})
+
+	$('#button-delete').on('click', function () {
+		let showID = this._id;
+		fetch(`http://localhost:8080/shows/${showID}`, {
+			method: 'DELETE'
+		})
+		.then(res => {
+			if( res.status === 204) {
+				listShows();
+			}
+		});
+	});
+
+
 
  $(function() {
         listShows();
