@@ -32,7 +32,6 @@ function getData(query) {
 }
 
     $('#button-container').on('click', function(e) {
-
 		let newObject = {
 			title: $('.title').val(),
 			returns: $('.returns').val()
