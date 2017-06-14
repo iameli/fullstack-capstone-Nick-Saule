@@ -129,15 +129,29 @@ describe('Show API resource', function () {
     });
   });
 
+describe ('DELETE endpoint', function() {
 
+    it('should delete a show by id', function() {
 
+      let show;
 
+      return Show
+        .findOne()
+        .exec()
+        .then(_show => {
+          show = _show;
+          return chai.request(app)
+            .delete(`/shows/${show.id}`)
+        })
 
-
-
-
-
-
-
+        .then(res => {
+          res.should.have.status(204);
+          return Show.findById(show.id);
+        })
+        .then(_show => {
+          should.not.exist(_show);
+        });
+    });
+  });
 
 });
