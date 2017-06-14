@@ -119,13 +119,11 @@ describe('Show API resource', function () {
           res.should.have.status(201);
           res.should.be.json;
           res.body.should.be.a('object');
-          res.body.title.should.equal(updateData.title);
           res.body.returns.should.equal(updateData.returns);
 
           return Show.findById(res.body.id).exec();
         })
         .then(post => {
-          post.title.should.equal(updateData.title);
           post.returns.should.equal(updateData.returns);
         });
     });
