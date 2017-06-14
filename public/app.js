@@ -18,7 +18,7 @@ function getData(query) {
         $('.container').html('');
         shows.forEach(show => {
             let showTemplate= `<div class="show-container"> 
-                               <h3>${show.title} Returns on ${show.returns}</h3> <input type="text" placeholder="new date" class="returns">
+                               <h3>${show.title} Returns on ${show.returns}</h3> <input type="text" placeholder="new date" class="newReturns">
 							    <div id="button-update"><button data-updateID="${show.id}" class="button update" type="submit">Update</button> 
 								<div id="button-delete"><button data-mongoID="${show.id}" class="button delete" type="submit">Delete</button>
                                <p>${show.overview}</p>
@@ -72,13 +72,19 @@ function getData(query) {
 
  $('.container').on('click','.update', function () {
     event.preventDefault();
-        let showID = $(this).attr('data-updateID');
-        let newObject= {
-            returns:$('.returns').val()
+        let showIDup = $(this).attr('data-updateID');
+        let newObjectup= {
+			id: showIDup,
+            returns:$('.newReturns').val()
         }
-        fetch(`http://localhost:8080/shows/${showID}`,{
+		console.log(newObjectup);
+        fetch(`http://localhost:8080/shows/${showIDup}`,{
             method:'PUT',
-            body: JSON.stringify(newObject)
+			headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+            body: JSON.stringify(newObjectup)
         })
         .then(res => {
             if (res.status === 201) {
