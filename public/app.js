@@ -18,7 +18,7 @@ function getData(query) {
         $('.container').html('');
         shows.forEach(show => {
             let showTemplate= `<div class="show-container"> 
-                               <h3>${show.title} Returns on ${show.returns}</h3><div id="button-update"><button class="button update" type="submit">Update</button><div id="button-delete"><button class="button delete" type="submit">Delete</button>
+                               <h3>${show.title} Returns on ${show.returns}</h3><div id="button-update"><button  class="button update" type="submit">Update</button><div id="button-delete"><button data-mongoID="${show.id}" class="button delete" type="submit">Delete</button>
                                <p>${show.overview}</p>
                                <img src =${show.image} />               
                             </div>`;
@@ -26,6 +26,7 @@ function getData(query) {
                     
 
             $('.container').append(showTemplate);
+			
 			
         });
     });
@@ -52,13 +53,11 @@ function getData(query) {
 	})
 
 	$('.container').on('click','.delete', function () {
-		console.log('LOOK HERE!!!',`${showId}`);
-		let showID = this._id;
+		let showID = $(this).attr('data-mongoID')
 		fetch(`http://localhost:8080/shows/${showID}`, {
 			method: 'DELETE'
 		})
 		.then(res => {
-			// console.log(res);
 			if( res.status === 204) {
 				listShows();
 			}
