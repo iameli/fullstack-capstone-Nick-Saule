@@ -24,26 +24,24 @@ function tearDownDb() {
 
 
 const SHOW = {
-  "title": "Star Trek",
-  "returns": "October 2017"
+    'title': 'Star Trek',
+    'returns': 'October 2017'
 };
 
-
-
 function seedShow(){
-  return Show.create(SHOW);
+    return Show.create(SHOW);
 }
 
 function seedShowData() {
   //console.info('seeding blog post data');
-  const seedData = [];
-  for (let i=1; i<=10; i++) {
-    seedData.push({
-      title: faker.name.title(),
-      returns: faker.random.words()
-    });
-  }
-  return Show.insertMany(seedData);
+    const seedData = [];
+    for (let i=1; i<=10; i++) {
+        seedData.push({
+            title: faker.random.words(),
+            returns: faker.random.words()
+        });
+    }
+    return Show.insertMany(seedData);
 }
 
 
@@ -65,40 +63,71 @@ describe('Show API resource', function () {
         return closeServer();
     });
 
-  describe('access root', function() {
-      it('should return 200 and html', function() {
-        return chai.request(app)
+    describe('access root', function() {
+        it('should return 200 and html', function() {
+            return chai.request(app)
           .get('/')
           .then(function(res) {
-            res.should.have.status(200);
-            res.should.be.html;
+              res.should.have.status(200);
+              res.should.be.html;
           });
-      });
-  });
+        });
+    });
 
-      describe('POST endpoint', function(){
-      it('should add a new show', function(){
-        const newShow=SHOW;
-        return chai.request(app)
+    describe('POST endpoint', function(){
+        it('should add a new show', function(){
+            const newShow=SHOW;
+            return chai.request(app)
         .post('/shows')
         .send(newShow)
         .then(function(res){
-          res.should.have.status(201);
-          res.should.be.json;
-          res.body.should.be.a('object');
-          res.body.should.include.keys(
+            res.should.have.status(201);
+            res.should.be.json;
+            res.body.should.be.a('object');
+            res.body.should.include.keys(
             'title','returns');
-          res.body.title.should.equal(newShow.title);
-          res.body.returns.should.equal(newShow.returns)
-          return Show.findById(res.body.id);
+            res.body.title.should.equal(newShow.title);
+            res.body.returns.should.equal(newShow.returns);
+            return Show.findById(res.body.id);
         })
         .then(function(show){
-          show.title.should.equal(newShow.title);
-          show.returns.should.equal(newShow.returns);
+            show.title.should.equal(newShow.title);
+            show.returns.should.equal(newShow.returns);
         });
-      });
+        });
     });
+    
 
+    describe.only('PUT endpoint', function () {
+
+        it('should update fields you send over', function () {
+            const updateData = {
+              "id":'',
+            "title": 'Santa Barbara ',
+            "returns": 'January 30'
+        };
+
+            return Show
+        .findOne()
+        .exec()
+        .then(function (show) {
+            updateData.id = show.id;
+
+            return chai.request(app)
+            .put(`/shows/${show.id}`)
+            .send(updateData);
+        })
+        .then(function (res) {
+            res.should.have.status(201);
+
+            return Show.findById(updateData.id).exec();
+        })
+        .then(function (show) {
+            show.title.should.equal(updateData.title);
+            show.returns.should.equal(updateData.returns);
+        });
+        });
+    });
 
 
 
