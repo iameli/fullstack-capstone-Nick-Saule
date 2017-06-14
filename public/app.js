@@ -32,10 +32,7 @@ function getData(query) {
 }
 
     $('#button-container').on('click', function(e) {
-		// $('.overlay, .new-listing').toggleClass('hidden');
-		// $('body').css('overflow', 'scroll');
 
-		// let inputFinder = $(e.target).closest('div');
 		let newObject = {
 			title: $('.title').val(),
 			returns: $('.returns').val()
