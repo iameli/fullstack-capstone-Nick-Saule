@@ -26,12 +26,13 @@ function getData(query) {
                     
 
             $('.container').append(showTemplate);
-         
+			
         });
     });
 }
 
-    $('#button-container').on('click', function(e) {
+    $('#AddButton').on('click', function(e) {
+		console.log("BUTTON CONTAINER CLICKED");
 		let newObject = {
 			title: $('.title').val(),
 			returns: $('.returns').val()
@@ -47,14 +48,17 @@ function getData(query) {
 			.then(res => {
 				listShows();
 			})
+		
 	})
 
-	$('#button-delete').on('click', function () {
+	$('.container').on('click','.delete', function () {
+		console.log('LOOK HERE!!!',`${showId}`);
 		let showID = this._id;
 		fetch(`http://localhost:8080/shows/${showID}`, {
 			method: 'DELETE'
 		})
 		.then(res => {
+			// console.log(res);
 			if( res.status === 204) {
 				listShows();
 			}
