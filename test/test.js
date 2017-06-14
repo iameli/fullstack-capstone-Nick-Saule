@@ -102,32 +102,34 @@ describe('Show API resource', function () {
 
         it('should update fields you send over', function () {
             const updateData = {
-              "id":'',
-            "title": 'Santa Barbara ',
-            "returns": 'January 30'
+            returns: 'January 30'
         };
 
             return Show
         .findOne()
         .exec()
-        .then(function (show) {
+        .then(show => {
             updateData.id = show.id;
 
             return chai.request(app)
             .put(`/shows/${show.id}`)
             .send(updateData);
         })
-        .then(function (res) {
-            res.should.have.status(201);
+        .then(res => {
+          res.should.have.status(201);
+          res.should.be.json;
+          res.body.should.be.a('object');
+          res.body.title.should.equal(updateData.title);
+          res.body.returns.should.equal(updateData.returns);
 
-            return Show.findById(updateData.id).exec();
+          return Show.findById(res.body.id).exec();
         })
-        .then(function (show) {
-            show.title.should.equal(updateData.title);
-            show.returns.should.equal(updateData.returns);
-        });
+        .then(post => {
+          post.title.should.equal(updateData.title);
+          post.returns.should.equal(updateData.returns);
         });
     });
+  });
 
 
 
