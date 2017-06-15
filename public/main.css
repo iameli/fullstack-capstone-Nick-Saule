@@ -35,7 +35,37 @@ body {
     overflow:scroll;
     height: 1000px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 75px;
     border: 1px solid black; 
+}
+
+.container {
+    width: 800px;
+
+}
+
+.newReturns {
+
+    height: 30px;
+    width: 200px;
+}
+
+#textbox {
+
+    height: 40px;
+    width: 250px;
+}
+
+h3 {
+
+    font-size: 2.5em;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+p {
+        font-family: 'Raleway', sans-serif;
+
+
 }
 
