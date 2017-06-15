@@ -55,7 +55,7 @@ function getData(query) {
 	})
 //////////////////////////DELETE//////////////////////////////
 
-	$('.container').on('click','.delete', function () {
+	$('.container').on('click','.btn-danger', function () {
 		let showID = $(this).attr('data-mongoID')
 		fetch(`http://localhost:8080/shows/${showID}`, {
 			method: 'DELETE'
@@ -70,7 +70,7 @@ function getData(query) {
 
 ////////////////////UPDATE//////////////////////////////
 
- $('.container').on('click','.btn btn-success', function () {
+ $('.container').on('click','.btn-success', function () {
     event.preventDefault();
         let showIDup = $(this).attr('data-updateID');
         let newObjectup= {
