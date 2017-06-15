@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    const endpointURL = 'http://localhost:8080/shows';
+    const endpointURL = '/shows';
 
 
     currentShows=[];
@@ -40,7 +40,7 @@ function getData(query) {
 			title: $('.title').val(),
 			returns: $('.returns').val()
 		};
-		fetch(`http://localhost:8080/shows`, {
+		fetch(`/shows`, {
 				method: 'POST',
 				headers: {
 					'Accept': 'application/json',
@@ -57,7 +57,7 @@ function getData(query) {
 
 	$('.container').on('click','.btn-danger', function () {
 		let showID = $(this).attr('data-mongoID')
-		fetch(`http://localhost:8080/shows/${showID}`, {
+		fetch(`/shows/${showID}`, {
 			method: 'DELETE'
 		})
 		.then(res => {
@@ -78,7 +78,7 @@ function getData(query) {
             returns:$('.newReturns').val()
         }
 		console.log(newObjectup);
-        fetch(`http://localhost:8080/shows/${showIDup}`,{
+        fetch(`/shows/${showIDup}`,{
             method:'PUT',
 			headers: {
                     'Accept': 'application/json',
