@@ -18,11 +18,13 @@ function getData(query) {
         $('.container').html('');
         shows.forEach(show => {
             let showTemplate= `<div class="show-container"> 
+                        
                                <h3>${show.title} Returns on ${show.returns}</h3> <input type="text" placeholder="new date" class="newReturns">
 							    <div id="button-update"><button data-updateID="${show.id}" class="button update" type="submit">Update</button> 
 								<div id="button-delete"><button data-mongoID="${show.id}" class="button delete" type="submit">Delete</button>
                                <p>${show.overview}</p>
-                               <img src =${show.image} />               
+                               <img src =${show.image} />    
+                                        
                             </div>`;
 
                     
