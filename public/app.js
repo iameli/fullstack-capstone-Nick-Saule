@@ -19,11 +19,11 @@ function getData(query) {
         shows.forEach(show => {
             let showTemplate= `<div class="show-container"> 
                         
-                               <h3>${show.title} Returns on ${show.returns}</h3> <input type="text" placeholder="new date" class="newReturns">
-							    <div id="button-update"><button data-updateID="${show.id}" class="btn btn-success" type="button">Update</button> 
-								<div id="button-delete"><button data-mongoID="${show.id}" class="btn btn-danger" type="button">Delete</button>
+                               <h3>${show.title} Returns on ${show.returns}</h3> <input type="text" placeholder="new date" class="newReturns"><br><br>
+							    <div id="buttonsinside"><button data-updateID="${show.id}" class="btn btn-success" type="button">Update</button>
+								<button data-mongoID="${show.id}" class="btn btn-danger" type="button">Delete</button></div> <br>
                                <p>${show.overview}</p>
-                               <img src =${show.image} />    
+                               <img src =${show.image} />   <br><br><br> 
                                         
                             </div>`;
 
