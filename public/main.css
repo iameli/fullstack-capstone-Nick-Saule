@@ -20,7 +20,7 @@ body {
 .wrapper {
     margin-top: 25px;
     text-align: center;
-    width: 1750px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
@@ -31,7 +31,7 @@ body {
 .fixed-box {
     position:relative;
     top:5px;
-    width: 1000px;
+    width: 70%;
     overflow:scroll;
     height: 1000px;
     margin: auto;
@@ -69,3 +69,13 @@ p {
 
 }
 
+.logo {
+  width:70%;
+  max-width:500px;
+}
+
+@media screen and (max-width: 600px) {
+    .fixed-box {
+        width: 90%;
+    }
+}
