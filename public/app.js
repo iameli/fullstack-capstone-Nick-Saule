@@ -20,8 +20,8 @@ function getData(query) {
             let showTemplate= `<div class="show-container"> 
                         
                                <h3>${show.title} Returns on ${show.returns}</h3> <input type="text" placeholder="new date" class="newReturns">
-							    <div id="button-update"><button data-updateID="${show.id}" class="button update" type="submit">Update</button> 
-								<div id="button-delete"><button data-mongoID="${show.id}" class="button delete" type="submit">Delete</button>
+							    <div id="button-update"><button data-updateID="${show.id}" class="btn btn-success" type="button">Update</button> 
+								<div id="button-delete"><button data-mongoID="${show.id}" class="btn btn-danger" type="button">Delete</button>
                                <p>${show.overview}</p>
                                <img src =${show.image} />    
                                         
@@ -57,7 +57,7 @@ function getData(query) {
 	})
 //////////////////////////DELETE//////////////////////////////
 
-	$('.container').on('click','.delete', function () {
+	$('.container').on('click','.btn-danger', function () {
 		let showID = $(this).attr('data-mongoID')
 		fetch(`http://localhost:8080/shows/${showID}`, {
 			method: 'DELETE'
@@ -72,7 +72,7 @@ function getData(query) {
 
 ////////////////////UPDATE//////////////////////////////
 
- $('.container').on('click','.update', function () {
+ $('.container').on('click','.btn-success', function () {
     event.preventDefault();
         let showIDup = $(this).attr('data-updateID');
         let newObjectup= {
