@@ -19,13 +19,11 @@ function getData(query) {
         shows.forEach(show => {
             let showTemplate= `<div class="show-container"> 
                                <h3>${show.title} Returns on ${show.returns}</h3> <input type="text" placeholder="new date" class="newReturns">
-							    <div id="button-update"><button data-updateID="${show.id}" class="button update" type="submit">Update</button> 
-								<div id="button-delete"><button data-mongoID="${show.id}" class="button delete" type="submit">Delete</button>
+							    <div id="button-update"><button data-updateID="${show.id}" class="btn btn-success" type="button">Update</button> 
+								<div id="button-delete"><button data-mongoID="${show.id}" class="btn btn-danger" type="button">Delete</button>
                                <p>${show.overview}</p>
                                <img src =${show.image} />               
                             </div>`;
-
-                    
 
             $('.container').append(showTemplate);
 			
@@ -70,7 +68,7 @@ function getData(query) {
 
 ////////////////////UPDATE//////////////////////////////
 
- $('.container').on('click','.update', function () {
+ $('.container').on('click','.btn btn-success', function () {
     event.preventDefault();
         let showIDup = $(this).attr('data-updateID');
         let newObjectup= {
