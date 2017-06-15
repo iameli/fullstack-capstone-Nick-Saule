@@ -19,7 +19,7 @@ function getData(query) {
         shows.forEach(show => {
             let showTemplate= `<div class="show-container"> 
                         
-                               <h3>${show.title} Returns on ${show.returns}</h3> <input type="text" placeholder="new date" class="newReturns"><br><br>
+                               <h3>${show.title} returns ${show.returns}</h3> <input type="text" placeholder="new date" class="newReturns"><br><br>
 							    <div id="buttonsinside"><button data-updateID="${show.id}" class="btn btn-success" type="button">Update</button>
 								<button data-mongoID="${show.id}" class="btn btn-danger" type="button">Delete</button></div> <br>
                                <p>${show.overview}</p>
