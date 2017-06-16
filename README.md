@@ -20,15 +20,15 @@ http://imgur.com/a/268yV
 
 ##Installation: 
 1.Install the dependencies by running [npm install] that will create and upload the package.json that includes:
-    "faker": "^4.1.0"
-    "isomorphic-fetch": "^2.2.1"
-    "body-parser": "^1.17.2"
-     "chai": "^4.0.2"
-    "chai-http": "^3.0.0"
-    "express": "^4.15.3"
-    "mocha": "^3.4.2"
-    "mongoose": "^4.10.6"
-    
+   * "faker": "^4.1.0"
+   * "isomorphic-fetch": "^2.2.1"
+   * "body-parser": "^1.17.2"
+   *  "chai": "^4.0.2"
+   * "chai-http": "^3.0.0"
+   * "express": "^4.15.3"
+   * "mocha": "^3.4.2"
+   * "mongoose": "^4.10.6"
+
 2.Run the server with [npm start]
 
 ##Additonal info:
