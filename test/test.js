@@ -22,7 +22,7 @@ function tearDownDb() {
 }
 
 
-
+// The SHOW objects is for testing purposes.
 const SHOW = {
     'title': 'Star Trek',
     'returns': 'October 2017'
@@ -32,8 +32,8 @@ function seedShow(){
     return Show.create(SHOW);
 }
 
+// This function randomly generates fake shows for testing purposes.
 function seedShowData() {
-  //console.info('seeding blog post data');
     const seedData = [];
     for (let i=1; i<=10; i++) {
         seedData.push({

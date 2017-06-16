@@ -3,8 +3,6 @@ $(document).ready(function() {
     const endpointURL = '/shows';
 
 
-    currentShows=[];
-
 function getData(query) {
 	return fetch(query)
 		.then(response => {
@@ -12,6 +10,9 @@ function getData(query) {
 		})
 }
 
+
+// this function goes into the database, pulls all entires, loops through each one, and adds appropriate HTML. It is then appended
+// to the index.
     function listShows(){
         getData(endpointURL)
     .then(shows => {
@@ -33,6 +34,8 @@ function getData(query) {
         });
     });
 }
+
+
  /////////////////////POST/////////////////////////////////////
     $('#AddButton').on('click', function(e) {
 		console.log("BUTTON CONTAINER CLICKED");

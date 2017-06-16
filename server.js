@@ -13,7 +13,6 @@ mongoose.Promise = global.Promise;
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
-//app.listen(process.env.PORT || 8080);
 
 
 app.get('/shows', (req, res) => {
@@ -30,6 +29,9 @@ app.get('/shows', (req, res) => {
 
 });
 
+
+// When calling the POST endpoint, the inputted title is sent to theMovieDb API, then the response is saved in our database, along
+// with the inputted return date.
 
 app.post('/shows', (req, res) => {
 
@@ -55,8 +57,6 @@ app.post('/shows', (req, res) => {
         return response.json();
     }).then(data => {
         
-
-
         return Show
         .create({   
             title: req.body.title,
@@ -71,6 +71,7 @@ app.post('/shows', (req, res) => {
         res.status(500).json({message: 'Internal server error'});
     });
 });
+
 
 app.put('/shows/:id',(req, res) => {
 
@@ -106,13 +107,6 @@ app.delete('/shows/:id',(req, res) => {
     });
 });
 
-
-
-
-
-
-
-// https://www.programmableweb.com/api/movie-database-tmdb
 
 
 
