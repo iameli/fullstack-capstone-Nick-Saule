@@ -1,0 +1,81 @@
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+
+* {
+	box-sizing: border-box;
+}
+
+h1 {
+    font-size: 5em;
+}
+
+body {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+
+}
+
+
+.wrapper {
+    margin-top: 25px;
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    padding: 20px;
+}
+
+
+.fixed-box {
+    position:relative;
+    top:5px;
+    width: 70%;
+    overflow:scroll;
+    height: 1000px;
+    margin: auto;
+    margin-top: 75px;
+    border: 1px solid black; 
+}
+
+.container {
+    width: 800px;
+
+}
+
+.newReturns {
+
+    height: 30px;
+    width: 200px;
+}
+
+#textbox {
+
+    height: 40px;
+    width: 250px;
+}
+
+h3 {
+
+    font-size: 2.5em;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+p {
+        font-family: 'Raleway', sans-serif;
+
+
+}
+
+.logo {
+  width:70%;
+  max-width:800px;
+}
+
+@media screen and (max-width: 600px) {
+    .fixed-box {
+       width: 90%;
+    }
+}

@@ -1,0 +1,11 @@
+language: node_js
+node_js: node
+services:
+- mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: eG/cHai95vRMWS7uZT9uyGrRhN4x7KzHq82mybvTdLR/NYj/gKRb1tgeDRob8oPJuh6J+ep+SNVgzX4XdXUSjwW+TUZ+5m7FxDAXCdpRb6cKK47As7aTjNlSxssja/bBVCc/o29ku6L8U8iAhQLsR9VDN7kdSoQLPzJpy+1YbR9VjrZQSXACVWp4DL8rFGtfrYWebOh4MK9r+r1DddS3ta2Zlf6LStZk+WwgMyDfXUYdo3SQTKLq0BgxdvJ2QUgT//jWvAb0fAhUazjF0Npbphbjs3hov1957ug7i1Wkm30GBx2KVFYXv/k/LPKP+vaaMsKV688FUJMBt9+LejDzabrt45oCfdasSuKIkoTLsCMHb62xjHXaChapl8DPPDjo8HeGqxds5YXwjrRzCcP+FcmFrEs9B0H+Fm7rssapQLOV/AUjjeWxbZtdn7SM9BPW/dBDL6xDZedHR/+XPFvbyLfDEuDq6fW+lGJUTGThraKg67HUGJ9nlVvmPJiyn56qhE21mafqi3o8BIN0W+qtXjtlm+NwoHjoyf+X8jKo5Ok5fiDPFZpIaOzk+0ieTdgwLIxEu6l+ixFltED0dHrPaTSpTYR5QF3j8jwXxic2IZLSaV76qgBZWt+Sh8bFXjYcYxEwno+72tOSVSn313oQMF+N59LKSVGKTPZ1V4cr/uc=
+  app: secure-sierra-50536
+  on:
+    repo: thinkful-c11/fullstack-capstone-Nick-Saule
